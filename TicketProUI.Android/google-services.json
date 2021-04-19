@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "93120147433",
+    "firebase_url": "https://ticketproxamarin.firebaseio.com",
+    "project_id": "ticketproxamarin",
+    "storage_bucket": "ticketproxamarin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93120147433:android:f307c35250f17abb",
+        "android_client_info": {
+          "package_name": "com.usicllc.TicketProUI"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "93120147433-dajhl19m0svuprackldi3pnfpnfd3hep.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "93120147433-dajhl19m0svuprackldi3pnfpnfd3hep.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1JIH2n5k0_QS-FVwhQuf5kd4jhCbgdKE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

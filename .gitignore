@@ -1,0 +1,33 @@
+#ignore thumbnails created by windows
+Thumbs.db
+#Ignore files build by Visual Studio
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.dll
+*.pdb
+*.ncb
+*.suo
+*.bak
+*.cache
+*.ilk
+*.log
+.vs
+[Bb]in
+[Dd]ebug*/
+*.sbr
+obj/
+[Rr]elease*/
+_ReSharper*/
+/packages
+/UpgradeLog.htm
+/TicketProUISandbox.UWP/TicketProUI.UWP/AppPackages/TicketProUI.UWP_1.0.0.0_Test
+/TicketProUISandbox.UWP/TicketProUI.UWP/BundleArtifacts
+/.idea
+mono_crash*.blob
+mono_crash*.json
+/captures/com.usicllc.TicketProUI_2020.07.28_10.17.li
+.DS_Store

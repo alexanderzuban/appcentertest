@@ -1,0 +1,1769 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>8.0</LangVersion>
+    <Configurations>Debug;DebugNoLog;Release</Configurations>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;1705;NU1605</NoWarn>
+    <WarningsAsErrors />
+    <DebugType>Full</DebugType>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoLog|AnyCPU'">
+    <NoWarn>1701;1702;1705;NU1605</NoWarn>
+    <WarningsAsErrors />
+    <DebugType>Full</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE;DISABLE_XAMARINFORMSLIVE</DefineConstants>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <Compile Remove="Common\Events\**" />
+    <Compile Remove="Common\Locating\**" />
+    <Compile Remove="ViewModel\Modules\Administration\**" />
+    <Compile Remove="ViewModel\Modules\Reporting\**" />
+    <EmbeddedResource Remove="Common\Events\**" />
+    <EmbeddedResource Remove="Common\Locating\**" />
+    <EmbeddedResource Remove="ViewModel\Modules\Administration\**" />
+    <EmbeddedResource Remove="ViewModel\Modules\Reporting\**" />
+    <None Remove="Common\Events\**" />
+    <None Remove="Common\Locating\**" />
+    <None Remove="ViewModel\Modules\Administration\**" />
+    <None Remove="ViewModel\Modules\Reporting\**" />
+    <None Remove="Resources\1.png" />
+    <None Remove="Resources\2.png" />
+    <None Remove="Resources\3.png" />
+    <None Remove="Resources\4.png" />
+    <None Remove="Resources\5.png" />
+    <None Remove="Resources\6.png" />
+    <None Remove="Resources\7.png" />
+    <None Remove="Resources\8.png" />
+    <None Remove="Resources\Config\clientConfig" />
+    <None Remove="Resources\Config\clientQuestions" />
+    <None Remove="Resources\Licenses\Microsoft Mobile Center.license" />
+    <None Remove="Resources\Licenses\Xamarin.license" />
+    <None Remove="Resources\QuestionTriggers.csv" />
+    <None Remove="Resources\Stickers\10.jpg" />
+    <None Remove="Resources\Stickers\11.jpg" />
+    <None Remove="Resources\Stickers\12.jpg" />
+    <None Remove="Resources\Stickers\13.jpg" />
+    <None Remove="Resources\Stickers\2.jpg" />
+    <None Remove="Resources\Stickers\6.jpg" />
+    <None Remove="Resources\Stickers\9.jpg" />
+    <None Remove="Resources\ticketproui.ttf" />
+    <Compile Remove="Pages\Locate\TicketChangeStatusPage.xaml.cs" />
+    <Compile Remove="Common\Commands\ChangeStatusCommand.cs" />
+    <None Remove="Resources\UI\TicketHelp.png" />
+    <None Remove="Resources\UI\TicketHelpPrints.png" />
+    <None Remove="Resources\WorkflowQuestionImages\TakeATimeoutMessage.png" />
+    <EmbeddedResource Update="Pages\Modules\AfterHours\AfterHoursPhoneView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\AfterHours\AfterHoursTabletView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\AfterHours\AfterHoursView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\GeoEvent\GeoBundleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </EmbeddedResource>
+    <Compile Update="Dictionaries\Map.xaml.cs">
+      <DependentUpon>Map.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Dictionaries\PopupViewPageStyles.xaml.cs">
+      <DependentUpon>PopupViewPageStyles.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Dictionaries\NoticeViewStyles.xaml.cs">
+      <DependentUpon>NoticeViewStyles.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Dictionaries\TicketDetailsViewResources.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\GeoEvent\GeoBundleView.xaml.cs">
+      <DependentUpon>GeoBundleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Locating\CalendarEvents\CalendarEventUserNoticeView.xaml.cs">
+      <DependentUpon>CalendarEventUserNoticeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Details\TicketDetailsNoMapView.xaml.cs">
+      <DependentUpon>TicketDetailsNoMapView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Map\TicketMapView.xaml.cs">
+      <DependentUpon>TicketMapView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\MeetSheet\MeetSheetAttachmentCell.xaml.cs">
+      <DependentUpon>MeetSheetAttachmentCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Visit\Submit\ProjectTypeSelectView.xaml.cs">
+      <DependentUpon>ProjectTypeSelectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\WorkflowQuestions\AcknowledgeExcavatorCalloutView.xaml.cs">
+      <DependentUpon>AcknowledgeExcavatorCalloutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Widgets\Fields\FormFields\MemoFormField.xaml.cs">
+      <DependentUpon>MemoFormField.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Widgets\Fields\FormFields\DateTimeFormField.xaml.cs">
+      <DependentUpon>DateTimeFormField.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Widgets\Fields\FormFields\PickerFormField.xaml.cs">
+      <DependentUpon>PickerFormField.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Widgets\Fields\FormFields\CoordinateFormField.xaml.cs">
+      <DependentUpon>CoordinateFormField.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Widgets\Fields\FormFields\StringFormField.xaml.cs">
+      <DependentUpon>StringFormField.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Update="Pages\Modules\GeoEvent\GeoBundleListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </EmbeddedResource>
+    <Compile Update="Pages\Modules\GeoEvent\GeoBundleListView.xaml.cs">
+      <DependentUpon>GeoBundleListView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Amporis.Xamarin.Forms.ColorPicker" Version="1.0.23" />
+    <PackageReference Include="CarouselView.FormsPlugin" Version="6.0.0" />
+    <PackageReference Include="CsvHelper" Version="26.1.0" />
+    <PackageReference Include="Microcharts" Version="0.9.5.9" />
+    <PackageReference Include="Microcharts.Forms" Version="0.9.5.9" />
+    <PackageReference Include="Nito.AsyncEx" Version="5.1.0" />
+    <PackageReference Include="Plugin.DeviceOrientation" Version="1.0.7" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.11" />
+    <PackageReference Include="Serilog" Version="2.10.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
+    <PackageReference Include="ServiceStack.Text.LS" Version="5.0.0" />
+    <PackageReference Include="SkiaSharp" Version="2.80.2" />
+    <PackageReference Include="SkiaSharp.HarfBuzz" Version="2.80.2" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="2.80.2" />
+    <PackageReference Include="TicketProClient" Version="1.0.1" />
+    <PackageReference Include="Xam.Plugin.Geolocator" Version="4.5.0.6" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.1.0" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="5.0.0.2012" />
+    <PackageReference Include="Microsoft.AppCenter" Version="4.2.0" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.2.0" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.2.0" />
+    <PackageReference Include="Jint" Version="2.11.58" />
+    <PackageReference Include="Plugin.MediaManager.Forms" Version="1.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="App.xaml.cs">
+      <DependentUpon>*.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Dictionaries\Icons.xaml.cs">
+      <DependentUpon>Icons.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Dictionaries\Styling.xaml.cs">
+      <DependentUpon>Styling.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Dictionaries\Visit.xaml.cs">
+      <DependentUpon>Visit.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Dictionaries\Colors.xaml.cs">
+      <DependentUpon>Colors.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Dictionaries\Convertors.xaml.cs">
+      <DependentUpon>Convertors.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Dictionaries\Defaults.xaml.cs">
+      <DependentUpon>Defaults.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Dictionaries\Common.xaml.cs">
+      <DependentUpon>Common.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Dictionaries\ListView.xaml.cs">
+      <DependentUpon>ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Dictionaries\Tools.xaml.cs">
+      <DependentUpon>Tools.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Dictionaries\Ticket.xaml.cs">
+      <DependentUpon>Ticket.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Features\CustomersHierarchy\CustomerCellView.xaml.cs">
+      <DependentUpon>CustomerCellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Features\CustomersHierarchy\FeedCellView.xaml.cs">
+      <DependentUpon>FeedCellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Features\CustomersHierarchy\TermCellView.xaml.cs">
+      <DependentUpon>TermCellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Features\CustomersHierarchy\UtilityCellView.xaml.cs">
+      <DependentUpon>UtilityCellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Features\UsersHierarchy\UsersHierarchyView.xaml.cs">
+      <DependentUpon>UsersHierarchyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Locating\ContextTicketsListView.xaml.cs">
+      <DependentUpon>ContextTicketsListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Locating\LocatingTicketsView.xaml.cs">
+      <DependentUpon>LocatingTicketsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Locating\MyTix\MyTicketsView.xaml.cs">
+      <DependentUpon>MyTicketsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Locating\Timesheet\ClockOutReasonView.xaml.cs">
+      <DependentUpon>ClockOutReasonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Locating\Timesheet\VerifyTruckInfoView.xaml.cs">
+      <DependentUpon>VerifyTruckInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Main\Layout\MainViewPhone.xaml.cs">
+      <DependentUpon>MainViewPhone.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Main\Layout\MainViewTablet.xaml.cs">
+      <DependentUpon>MainViewTablet.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Management\UserTickets\ManagementUserTicketsContextView.xaml.cs">
+      <DependentUpon>ManagementUserTicketsContextView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Management\Operation\OperationalTargetEditView.xaml.cs">
+      <DependentUpon>OperationalTargetEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Management\Operation\ManageTargetsContextView.xaml.cs">
+      <DependentUpon>ManageTargetsContextView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Management\Operation\ManageTargetsView.xaml.cs">
+      <DependentUpon>ManageTargetsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Management\UserTickets\UsersTicketsView.xaml.cs">
+      <DependentUpon>UsersTicketsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Reporting\Reports\Parameters\DateParameterView.xaml.cs">
+      <DependentUpon>DateParameterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Reporting\Reports\ReportPDFPreviewView.xaml.cs">
+      <DependentUpon>ReportPDFPreviewView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Reporting\Reports\ReportResultsView.xaml.cs">
+      <DependentUpon>ReportResultsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Reporting\Reports\ReportsContextTitleView.xaml.cs">
+      <DependentUpon>ReportsContextTitleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Reporting\Reports\ReportsContextView.xaml.cs">
+      <DependentUpon>ReportsContextView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Timesheet\WorkSummary\LocatorDayView.xaml.cs">
+      <DependentUpon>LocatorDayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Timesheet\WorkSummary\LocatorProductivityDayView.xaml.cs">
+      <DependentUpon>LocatorProductivityDayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Timesheet\WorkTypeIndicator\WorkTypeToolbarIndicatorView.xaml.cs">
+      <DependentUpon>WorkTypeToolbarIndicatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Search\Criteria\Cells\SearchCellDate.xaml.cs">
+      <DependentUpon>SearchCellDate.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Search\Results\SearchResultsScreenView.xaml.cs">
+      <DependentUpon>SearchResultsScreenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Search\Saved\SearchSavedCell.xaml.cs">
+      <DependentUpon>SearchSavedCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Search\Criteria\Cells\SearchCellSelect.xaml.cs">
+      <DependentUpon>SearchCellSelect.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Search\Criteria\Cells\SearchCellFlag.xaml.cs">
+      <DependentUpon>SearchCellFlag.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Search\Criteria\Cells\SearchCellText.xaml.cs">
+      <DependentUpon>SearchCellText.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Search\SearchScreenTitleView.xaml.cs">
+      <DependentUpon>SearchScreenTitleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Attachments\AttachmentsListView.xaml.cs">
+      <DependentUpon>AttachmentsListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Attachments\AttachmentsPreviewListView.xaml.cs">
+      <DependentUpon>AttachmentsPreviewListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Draw\Views\DrawingTemplateLoadDialog.xaml.cs">
+      <DependentUpon>DrawingTemplateLoadDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Draw\Views\DrawingToolbarShapeActions.xaml.cs">
+      <DependentUpon>DrawingToolbarShapeActions.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Draw\Views\Editors\DistanceEditView.xaml.cs">
+      <DependentUpon>DistanceEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Note\TicketNotesDetailsView.xaml.cs">
+      <DependentUpon>TicketNotesDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Note\TicketNotesDetailsViewResources.xaml.cs">
+      <DependentUpon>TicketNotesDetailsViewResources.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Print\PrintTicketPopupView.xaml.cs">
+      <DependentUpon>PrintTicketPopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\RelatedTickets\RelatedTicketsListTitleView.xaml.cs">
+      <DependentUpon>RelatedTicketsListTitleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Reschedule\TicketRescheduleResources.xaml.cs">
+      <DependentUpon>TicketRescheduleResources.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Visit\TicketQuestions\TicketQuestionsListView.xaml.cs">
+      <DependentUpon>TicketQuestionsListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Visit\WatchAndProtect\WatchAndProtectLocateEditView.xaml.cs">
+      <DependentUpon>WatchAndProtectLocateEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Visit\WatchAndProtect\WatchAndProtectLocatesListView.xaml.cs">
+      <DependentUpon>WatchAndProtectLocatesListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Widgets\ListControl\HeaderMultiselectionView.xaml.cs">
+      <DependentUpon>HeaderMultiselectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Widgets\ListControl\ListControl.xaml.cs">
+      <DependentUpon>ListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Widgets\ListControl\HeaderView.xaml.cs">
+      <DependentUpon>HeaderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Widgets\ListControl\HeaderSearchView.xaml.cs">
+      <DependentUpon>HeaderSearchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Widgets\ListControl\HeaderTitleView.xaml.cs">
+      <DependentUpon>HeaderTitleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Widgets\SplitView\SplitViewPhone.xaml.cs">
+      <DependentUpon>SplitViewPhone.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Widgets\SplitView\SplitViewTablet.xaml.cs">
+      <DependentUpon>SplitViewTablet.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Widgets\Views\EmptyDataView.xaml.cs">
+      <DependentUpon>EmptyDataView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\WatchList\WatchListPage.xaml.cs">
+      <DependentUpon>WatchListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Draw\Views\DrawingShapePropertiesWindowView.xaml.cs">
+      <DependentUpon>DrawingShapePropertiesWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Draw\TicketDrawView.xaml.cs">
+      <DependentUpon>TicketDrawView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Reassign\ReassignLocateGroupViewCell.xaml.cs">
+      <DependentUpon>ReassignLocateGroupViewCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Reassign\ReassignLocateViewCell.xaml.cs">
+      <DependentUpon>ReassignLocateViewCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\History\TicketHistoryEventView.xaml.cs">
+      <DependentUpon>TicketHistoryEventView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Visit\Attachments\VisitAttachmentsView.xaml.cs">
+      <DependentUpon>VisitAttachmentsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Visit\Editors\StatusEditor.xaml.cs">
+      <DependentUpon>StatusEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Visit\Status\VisitLocateStatusView.xaml.cs">
+      <DependentUpon>VisitLocateStatusView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Visit\Status\VisitLocatesListView.xaml.cs">
+      <DependentUpon>VisitLocatesListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Visit\Status\VisitStatusView.xaml.cs">
+      <DependentUpon>VisitStatusView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Visit\Submit\SubmitVisitView.xaml.cs">
+      <DependentUpon>SubmitVisitView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Widgets\ActionBar\ActionBarView.xaml.cs">
+      <DependentUpon>ActionBarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Widgets\ModalNavigationPage.xaml.cs">
+      <DependentUpon>ModalNavigationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Widgets\PopupViewPage.xaml.cs">
+      <DependentUpon>PopupViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Widgets\Views\ShortcutContextView.xaml.cs">
+      <DependentUpon>ShortcutContextView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Widgets\Views\ProblemsView.xaml.cs">
+      <DependentUpon>ProblemsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\TicketList\DueCategoryFilterView.xaml.cs">
+      <DependentUpon>DueCategoryFilterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Cards\TicketCardWidget.xaml.cs">
+      <DependentUpon>TicketCardWidget.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Attachments\TicketAttachmentsView.xaml.cs">
+      <DependentUpon>TicketAttachmentsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\History\TicketHistoryView.xaml.cs">
+      <DependentUpon>TicketHistoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Details\TicketDetailsView.xaml.cs">
+      <DependentUpon>TicketDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Ticket\Transmissions\TicketTransmissionsView.xaml.cs">
+      <DependentUpon>TicketTransmissionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Reporting\Reports\Panels\ReportProductivityDetail.xaml.cs">
+      <DependentUpon>ReportProductivityDetail.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Config\clientConfig" />
+    <EmbeddedResource Include="Resources\Config\clientQuestions" />
+    <EmbeddedResource Include="Resources\Stickers\1.png" />
+    <EmbeddedResource Include="Resources\Stickers\10.jpg" />
+    <EmbeddedResource Include="Resources\Stickers\11.jpg" />
+    <EmbeddedResource Include="Resources\Stickers\12.jpg" />
+    <EmbeddedResource Include="Resources\Stickers\13.jpg" />
+    <EmbeddedResource Include="Resources\Stickers\2.jpg" />
+    <EmbeddedResource Include="Resources\Stickers\3.png" />
+    <EmbeddedResource Include="Resources\Stickers\4.png" />
+    <EmbeddedResource Include="Resources\Stickers\5.png" />
+    <EmbeddedResource Include="Resources\Stickers\6.jpg" />
+    <EmbeddedResource Include="Resources\Stickers\6.png" />
+    <EmbeddedResource Include="Resources\Stickers\7.png" />
+    <EmbeddedResource Include="Resources\Stickers\8.png" />
+    <EmbeddedResource Include="Resources\Licenses\Microsoft Mobile Center.license" />
+    <EmbeddedResource Include="Resources\Licenses\Xamarin.license" />
+    <EmbeddedResource Include="Resources\QuestionTriggers.csv" />
+    <EmbeddedResource Include="Resources\Stickers\9.jpg" />
+    <EmbeddedResource Include="Resources\ticketproui.ttf" />
+    <EmbeddedResource Include="Resources\UI\TicketHelp.png" />
+    <EmbeddedResource Include="Resources\UI\TicketHelpPrints.png" />
+    <EmbeddedResource Include="Resources\WorkflowQuestionImages\TakeATimeoutMessage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Common\Controls\StackItemsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Dictionaries\CellStyles.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Dictionaries\ContextViewStyles.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Dictionaries\ControlsStyles.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Dictionaries\ControlTemplates.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Dictionaries\HierarchyStyles.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Dictionaries\ImplicitStyles.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Dictionaries\Strings.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Dictionaries\ToolbarStyles.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Features\CustomersHierarchy\CustomerCellView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Features\CustomersHierarchy\FeedCellView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Features\CustomersHierarchy\TermCellView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Features\CustomersHierarchy\UtilityCellView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Features\UsersHierarchy\SelectUserDialogView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Features\UsersHierarchy\UserNodeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Features\UsersHierarchy\UserPathView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Features\UsersHierarchy\UsersHierarchyOptionsPanel.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Administration\AdministrationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\CalendarEvents\CalendarEventsListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\CalendarEvents\CalendarEventsMapView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\CalendarEvents\CreateCalendarEventView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\DayPlanner\ConfigureRoute\ConfigInfoView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\MyTix\MyTicketsSettingsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\Views\CalendarEventsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\Views\F2LDetailsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\Views\F2LTitleViewPhone.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\Views\F2LTitleViewTablet.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\Views\LoginInfoView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\Views\PendingChangesView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Login\LoginPageResources.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Main\Layout\MainViewPhone.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Main\Layout\MainViewTablet.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Management\AreaManager\AreaManagerActionsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Management\AreaManager\AreaManagerSettingsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Management\AreaManager\AreaManagerToolbarView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Management\AreaManager\AreaManagerView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Management\AreaManager\AreasListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Management\AreaManager\UsersOnMapListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Management\LoadBalancer\RebalanceOptionStepOptionsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Management\LoadBalancer\RebalanceOptionStepScopeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Management\LoadBalancer\RebalanceOptionStepSelectTicketsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Management\LoadBalancer\RebalanceOptionStepSelectUsersView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Management\LoadBalancer\RebalanceOptionStepWorkdayView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Management\LoadBalancer\RebalanceTicketsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Management\ManagementTools\ManagementToolsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Management\UserTickets\ManagementUsersTicketsSettingsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Management\UserTickets\ManagementUserTicketsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Management\UserTickets\UsersTicketsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Management\UserTickets\UsersTicketsTitleView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Reporting\Dashboards\DashboardContextView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Reporting\Dashboards\DashboardDetailsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Reporting\Dispatch\DispatchContextView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Reporting\Dispatch\DispatchDetailsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Reporting\Reports\Parameters\CustomerParameterView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Reporting\Reports\Parameters\DateRangeParameterView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Reporting\Reports\Parameters\DeliveryTypeParameterView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Reporting\Reports\Parameters\OutputTypeParameterView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Reporting\Reports\Parameters\PickerParameterView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Reporting\Reports\Parameters\SwitchParameterView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Reporting\Reports\Parameters\UserParameterView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Reporting\Reports\ReportResultsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Reporting\Reports\ReportsContextTitleView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Reporting\Reports\ReportView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Search\Criteria\Cells\SearchCellUser.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Settings\ChangePassword\ChangePasswordView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Settings\Help\TrainingHelpView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Timesheet\TimesheetGraphs\TimesheetChartView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Timesheet\WorkSummary\LocatorProductivityDayView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Timesheet\WorkSummary\WorkSummaryResources.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Timesheet\WorkSummary\WorkSummaryView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Timesheet\WorkSummary\LocatorDayView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Search\Results\SearchHistoryListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Search\SearchScreenTitleView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Search\Criteria\SearchCriteriaScreenView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Timesheet\WorkTypeIndicator\WorkTypeToolbarGeneralIndicatorView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Timesheet\WorkTypeIndicator\WorkTypeToolbarVisitIndicatorView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Wellness\Satisfactory\SatisfactoryView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Assistance\TicketAssistanceView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Details\TicketDetailsMapView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Details\TicketDetailsQuickActionsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\DrawingContextView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\DrawingHistoryView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\DrawingMapSettingsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\DrawingTemplateLoadDialog.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\DrawingTemplateSaveDialog.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\DrawingTemplatesListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\DrawingToolbarOperations.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\DrawingToolbarShapeActions.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\DrawingNotesWindowView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\DrawingShapesWindowView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\Editors\DirectionEditView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\Editors\DistanceEditView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\Editors\FacilityTypeEditView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\Editors\FillColorEditView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\Editors\FillLineWidthEditView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\Editors\FillTypeEditView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\Editors\FontSizeEditView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\Editors\InfoEditView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\Editors\LabelEditView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\Editors\LineColorEditView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\Editors\LineEndingEditView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\Editors\LineStyleEditView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\Editors\LineWidthEditView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\Editors\MaterialEditView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\Editors\NoteEditView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\Editors\OriginEditView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\Editors\ProfileEditView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\Editors\ShapePropertyEditViewTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\Editors\TextEditView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Draw\Views\Editors\UtilitySizeEditView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\MeetSheet\MeetSheetDrawingView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\MeetSheet\MeetSheetPreviewView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\MeetSheet\MeetSheetQuestionsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\MeetSheet\MeetSheetSignaturesView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\MeetSheet\MeetSheetAttachmentsView.xaml.cs">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\MeetSheet\MeetSheetView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Reassign\ReassignTicketsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\RelatedTickets\LinkedTicketsListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\RelatedTickets\RelatedTicketsAttachmentsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\RelatedTickets\RelatedTicketsLinkView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\RelatedTickets\RelatedTicketsListTitleView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\RelatedTickets\RelatedTicketsListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\RelatedTickets\RelatedTicketsNotesView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Calendar\BindTicketEventView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\DayPlanner\CofigureRoute\ConfigureRouteAvailableView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\DayPlanner\CofigureRoute\ConfigureRouteSelectedView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\DayPlanner\ConfigureRoute\RouteConfigView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\DayPlanner\DayWorkPlanItemCalendarCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\DayPlanner\DayWorkPlanItemInfoView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\DayPlanner\DayWorkPlanItemTicketCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\DayPlanner\ReviewRoute\ReviewRouteMapView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\DayPlanner\ReviewRoute\RouteInfoView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\DayPlanner\SelectRouteContextView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\LocatingTicketsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\MyTix\MyTicketsTitleView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\Views\DayPlannerView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\Views\F2LTitleView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\Views\SyncView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\Views\VisitInProgressActionsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\ContextTicketsListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\MyTix\MyTicketsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\TicketCategoryLink.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\Timesheet\ClockOutReminderView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\Timesheet\CommuteReminderView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\Timesheet\VerifyTruckInfoView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Locating\Timesheet\WorkTypeSelectView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Login\LoginPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Main\Layout\ContextInfoView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Main\Layout\ContextOptionsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Main\Layout\MainLayoutPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Main\Layout\MainView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Main\Layout\SideNavigationView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Main\ModulesView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Management\Operation\OperationalTargetEditView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Management\Operation\ManageTargetsContextView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Management\Operation\ManageTargetsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Management\Operation\OperationalTargetView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Reporting\Dashboards\DashboardView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Reporting\Dispatch\DispatchView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Timesheet\WorkTypeIndicator\WorkTypeToolbarIndicatorView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Search\Saved\SavedSearchesListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Search\Saved\SavedSearchesListViewResources.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Attachments\AttachmentsListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Attachments\AttachmentsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Attachments\AttachmentsPreviewListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Calendar\CalendarEventDetailView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Cards\CalendarEventView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Cards\FacilityTypesView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Cards\TicketBadgesView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Clipboard\CopyToClipboardPopupView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Clipboard\CopyToClipboardView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Damages\DamageDataView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Damages\TicketDamageDataView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Damages\TicketDamageInvestigationView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Details\TicketDetailsCallerView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Details\TicketDetailsContextView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Details\TicketDetailsInstructionsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Details\TicketDetailsNotesView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\History\HistoryContextView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\History\HistoryContextViewResources.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Map\AreaInfoView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Map\AttachmentMapInfoView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\NavigationTitle\TicketTitleView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Note\TicketNoteItemView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Note\TicketNotesHeaderView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Note\TicketNotesDetailsViewResources.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Note\TicketNotesPopupView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Print\EmailTicketPopupView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Print\EmailTicketView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Print\PrintTicketPopupView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Print\PrintTicketView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\RelatedTickets\CancelTicketsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\RelatedTickets\LinkedTicketsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\RelatedTickets\ProjectTicketsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\RelatedTickets\UpdateTicketsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\RequestCallout\RequestCalloutView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\RequestHelp\RequestHelpView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Reschedule\ReschedulePopupView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Reschedule\TicketRescheduleResources.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Reschedule\TicketRescheduleView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\TicketList\ClosedTicketsFilterView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\TicketList\SearchTicketsFilterView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Toolbar\RelatedTicketsIndicatorView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Toolbar\ToolbarTicketActionsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Toolbar\VisitInProgressView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Transmissions\TransmissionContextView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Visit\AddLocate\AddLocateView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Visit\Dominion\DominionQuestionsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Visit\Drawing\VisitDrawingView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Visit\Editors\OverrideClosingEditorView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Visit\Status\VisitLocateVew.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Visit\Submit\ProjectTypeSelectView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Visit\TicketQuestions\TicketQuestionView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Visit\VisitContextView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Visit\VisitView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Visit\WatchAndProtect\WatchAndProtectLocateEditView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Visit\WatchAndProtect\WatchAndProtectLocatesListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Visit\WatchAndProtect\WatchAndProtectLocateView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Visit\WatchAndProtect\WatchAndProtectView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\WorkflowQuestions\AcknowledgeCancelTicketView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\ActionBar\ActionBarTabView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\BusyPageView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Collapser\CollapserView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Collapser\CollapserViewResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\ContextActions\ActionsContextGategoryView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\ContextActions\ActionsContextItemView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\ContextActions\ActionsContextView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\ContextActions\DefaultContextView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Fields\BooleanSwitchField.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Fields\CheckBoxField.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Fields\ColorField.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Fields\ContextSwitchView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Fields\DateRangeField.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Fields\MonthSelectField.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Fields\SingleOptionIconField.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Fields\FormFields\StringFormField.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\ModalNavigationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\NavigationTitle\NavigationTitleView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\ContextActions\CategoriesActionContextView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Locates\TicketLocatesHeaderView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Locates\TicketLocatesViewResources.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Locates\TicketLocateView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\SplitView\SplitViewPhone.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\SplitView\SplitViewTablet.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Templates\PopupDialogTemplateView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Views\BusyView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Views\DeviceContentViewExt.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Views\HorizontalSeparator.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Views\InvisibleLazyView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Views\LoadingView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Views\NoticeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Views\NoticeViewUWP.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Views\OrganizationPathBreadcrumbView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Management\UserTickets\ManagementUserTicketsContextView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Search\Results\SearchResultsScreenView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Search\Saved\SearchSavedView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Search\Criteria\SearchSettingsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Modules\Search\Criteria\Cells\SearchCellText.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Assistance\TicketAssistantGroupViewCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Assistance\TicketAssistantViewCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Attachments\AttachmentInfoCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Damages\TicketDamagesView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Notifications\TicketNotificationsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Risk\TicketRiskView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Reassign\ReassignLocateViewCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Reassign\ReassignLocateGroupViewCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Details\TicketDetailsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\TicketLoadingPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Visit\Attachments\VisitAttachmentsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Visit\Editors\AddressEditorView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Visit\Editors\DistanceEditor.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Visit\Editors\HighProfileEditorView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Visit\Editors\StatusEditor.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Visit\Editors\WireCenterEditorView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Visit\Editors\QuestionEditor.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Visit\TicketQuestions\TicketQuestionsListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Visit\Submit\SubmitVisitView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Visit\Status\VisitLocateStatusView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Visit\Status\VisitLocatesListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Visit\Status\VisitStatusView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Visit\Minutes\VisitTimeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Voice\VoiceActionHelpPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\ActionBar\ActionBarButtonView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\ActionBar\ActionBarView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Attachments\AttachmentPreviewView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\BusyPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Views\ChartView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Views\CircleProgressView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Views\CompontCollapsedView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Fields\DateTimeField.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Fields\SpinnerField.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\LazyViewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\LoadingPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\PopupViewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Views\NavigationCaptionView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Views\OrganizationHierarchyView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Views\OrganizationSearchView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Views\ProblemsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Fields\SelectUserField.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Fields\SingleOptionField.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\TicketList\TicketGroupViewCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Locates\TicketLocatesView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\Note\TicketNotesDetailsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\TicketList\TicketViewCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\TicketList\DueCategoryFilterView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Views\OptionsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Ticket\TicketList\TicketListSettingsEditView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Views\SignatureView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\SplitView\SplitView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Views\SubmitFooterView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Views\VerticalSeparator.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Views\ViewsPagingView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Widgets\Views\WindowView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Styles\Colors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Styles\Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Styles\Converters.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Styles\Defaults.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Styles\ListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Styles\Strings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Styles\Ticket.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Styles\Toolbar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Styles\Tools.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Styles\Visit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Licenses\" />
+    <Folder Include="Pages\Modules\Notification\" />
+    <Folder Include="ViewModel\Notification\" />
+    <Folder Include="ViewModel\Reporting\" />
+    <Folder Include="ViewModel\Reporting\Reports\" />
+    <Folder Include="ViewModel\Reporting\Selector\" />
+    <Folder Include="Resources\WorkflowQuestionImages\" />
+    <Folder Include="Pages\Modules\Management\TemporaryRouting\" />
+    <Folder Include="Pages\Modules\Management\RoutingArea\" />
+    <Folder Include="Pages\Modules\Management\Loan\" />
+    <Folder Include="Pages\Modules\FieldEvents\" />
+    <Folder Include="Pages\Widgets\Dialogs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>    
+    <None Update="Common\Controls\StackItemsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Administration\AdministrationPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Locating\MyTix\MyTicketsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Locating\TicketCategoryLink.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Locating\Timesheet\ClockOutReasonView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Locating\Timesheet\ClockOutReminderView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Locating\Timesheet\CommuteReminderView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Locating\Timesheet\VerifyTruckInfoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Locating\Timesheet\WorkTypeSelectView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Login\LoginPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Main\ModuleContextActionsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Main\ModuleInfoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Main\ModulesMainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Main\ModulesMainPageMaster.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Main\ModulesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Main\StaticActionsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Management\ManagementContextView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Management\User\UserHomeDepotView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Management\User\UserInfoPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Management\User\UserTicketsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Notification\NotificationPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Reporting\Dashboards\DashboardView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Reporting\Dispatch\DispatchView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    
+    <None Update="Pages\Modules\Reporting\ReportingContextView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Reporting\Reports\ReportDayInLife.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Reporting\Reports\ReportTicketDue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Settings\AcknowledgementPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Settings\PrivacyPolicyPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Modules\Settings\SettingsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Assistance\TicketAssistancePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Assistance\TicketAssistantGroupViewCell.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Assistance\TicketAssistantViewCell.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\CopyToClipboardPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Damages\TicketDamagesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Damages\TicketDamagesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Details\TicketDetailsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Draw\ShapePropertiesDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Draw\TicketDrawView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\History\TicketHistoryEventView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\History\TicketHistoryFilterView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\History\TicketHistoryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Note\TicketNotesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Note\TicketNotesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Print\EmailTicketPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Print\PrintTicketPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Reassign\ReassignLocateGroupViewCell.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Reassign\ReassignLocateViewCell.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Reassign\ReassignTicketsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Reschedule\TicketReschedulePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\TicketLoadingPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\TicketNavigationPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Transmissions\TicketTransmissionsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Visit\Attachments\VisitAttachmentsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Visit\Editors\AddressEditorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Visit\Editors\DistanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Visit\Editors\HighProfileEditorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Visit\Editors\QuestionEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Visit\Editors\StatusEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Visit\Editors\SummaryEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Visit\Editors\WireCenterEditorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Visit\Minutes\VisitTimeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Visit\Status\VisitLocatesListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Visit\Status\VisitLocateStatusView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Visit\Status\VisitStatusView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Visit\Submit\SubmitVisitView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Visit\TicketQuestions\TicketQuestionsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Visit\VisitView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Visit\WatchAndProtect\VisitWatchAndProtectLocatesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\Visit\WatchAndProtect\VisitWatchAndProtectView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Ticket\WatchListPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Voice\VoiceActionHelpPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\ActionBarPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\ActionBar\ActionBarButtonView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\ActionBar\ActionBarView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\ActionBar\BottomActionBarView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\BusyPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Fields\DateTimeField.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Fields\SelectCustomerField.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Fields\SelectUserField.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Fields\SingleOptionField.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Fields\SpinnerField.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\LazyViewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\LoadingPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\ModalViewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Views\AttachmentPreviewView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Views\Cells\EmailActionCellView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Views\Cells\EmailEntryCellView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Views\Cells\EntryCellView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Views\Cells\LongTextCellView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Views\Cells\PhoneActionCellView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Views\Cells\PhoneEntryCellView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Views\Cells\PickerCellView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Views\Cells\TextCellView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Views\ChartView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Views\CircleProgressView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Views\CompontCollapsedView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Views\CustomerHierarchyView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Views\DueCategoryFilterView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Views\NavigationCaptionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Views\OptionsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Views\OrganizationHierarchyView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Views\OrganizationPathBreadcrumbView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Views\OrganizationSearchView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Views\ProblemsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Views\ReportListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Views\ShortcutContextView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Pages\Widgets\Views\TicketListSettingsEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+   
+  </ItemGroup>
+</Project>
